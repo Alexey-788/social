@@ -9,6 +9,10 @@ body {
     color: #000;
 }
 
+button {
+    display: block;
+}
+
 .wrapper {
     overflow: hidden;
     position: relative;
@@ -91,8 +95,22 @@ ul.header__list {
 }
 
 .top {
-    padding: 30px 0 15px;
+    padding: 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, .24);
+}
+
+.top__inner {
+    display: flex;
+    align-items: center;
+}
+
+.top__nav-icon-btn {
+    display: none;
+}
+
+.top__chat-icon {
+    display: none;
+    margin-right: 15px;
 }
 
 .title {
@@ -164,6 +182,10 @@ ul.header__list {
     width: 100%;
     max-width: 200px;
     background: rgba(255, 255, 255, .8);
+}
+
+.user__hide-btn {
+    display: none;
 }
 
 .user__photo {
@@ -298,11 +320,102 @@ ul.user__socials {
     }
 
     .top {
-        padding: 18px 0;
+        padding: 10px 0;
+    }
+
+    .top__chat-icon {
+        display: block;
+    }
+
+    .top__chat-icon-btn {
+        padding: 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    .top__chat-icon-img {
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+        border-radius: 3px;
     }
 
     .send-message__inner {
         padding: 12px 0;
+    }
+
+
+    .user {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        max-width: none;
+        background: #d5dadf;
+        transition: transform 0.5s;
+        transform: translateX(100%);
+        overflow: auto;
+    }
+
+    .user__hide-btn {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .user__hide-btn::before,
+    .user__hide-btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        transform: translateY(-50%);
+        background: #6c6c6c;
+    }
+
+    .user__hide-btn::before {
+        transform: rotate(45deg);
+    }
+
+    .user__hide-btn::after {
+        transform: rotate(-45deg);
+    }
+
+    .user--active {
+        transform: translateX(0);
+    }
+
+    .user__photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+
+    .user__content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    ul.user__socials {
+        justify-content: center;
+    }
+
+    .user__message-link {
+        align-self: center;
+        width: unset;
+        padding: 10px 64px;
     }
 }
 
@@ -328,40 +441,41 @@ ul.user__socials {
         text-align: center;
     }
 
-    .user {
+    .top__nav-icon-btn {
+        position: relative;
+        display: block;
+        padding: 15px 0;
+        border: none;
+        margin-right: 20px;
+        cursor: pointer;
+        background: transparent;
+    }
+
+    .top__nav-icon-btn span::before,
+    .top__nav-icon-btn span::after,
+    .top__nav-icon-btn span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background: #000;
+    }
+
+    .top__nav-icon-btn span::before,
+    .top__nav-icon-btn span::after {
+        content: '';
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        max-width: none;
-        background: #d5dadf;
-        transition: transform 0.5s;
-        transform: translateX(100%);
-        overflow: auto;
+        top: calc(50% - 9px);
+        left: 0;
+        width: 2px;
+        height: 18px;
     }
 
-    .user__photo {
-        width: 200px;
-        height: 200px;
-        border-radius: 20px;
-        margin: 20px auto;
-        overflow: hidden;
+    .top__nav-icon-btn span::before {
+        transform: rotate(45deg) translateY(-50%);
     }
 
-    .user__content {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    ul.user__socials {
-        justify-content: center;
-    }
-
-    .user__message-link {
-        align-self: center;
-        width: unset;
-        padding: 10px 64px;
+    .top__nav-icon-btn span::after {
+        transform: rotate(135deg) translateY(-50%);
     }
 }
 

@@ -68,7 +68,21 @@
             <section class="my-posts">
                 <div class="my-posts__top top">
                     <div class="container">
-                        <h2 class="title">My posts</h2>
+                        <div class="top__inner">
+
+                            <div class="top__nav-icon">
+                                <button class="top__nav-icon-btn">
+                                    <span></span>
+                                </button>
+                            </div>
+
+                            <div class="top__chat-icon">
+                                <button class="top__chat-icon-btn">
+                                    <img class="top__chat-icon-img" src="img/avatar.jpg" alt="Chat icon">
+                                </button>
+                            </div>
+                            <h2 class="title">My posts</h2>
+                        </div>
                     </div>
                 </div>
 
@@ -205,6 +219,11 @@
         </main>
 
         <section class="user">
+            <div class="user__hide">
+                <button class="user__hide-btn">
+                </button>
+            </div>
+
             <div class="user__photo">
                 <img class="user__photo-img" src="img/avatar.jpg" alt="User photo">
             </div>
@@ -260,5 +279,7 @@
         </section>
     </aside>
 </div>
+
+<script src="js/main.js"></script>
 </body>
 </html>
